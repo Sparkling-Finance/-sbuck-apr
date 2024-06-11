@@ -1,0 +1,26 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+model Tank {
+  id                        Int     @id @default(autoincrement())
+  asset                     String
+  buckReserve               String
+  collateralPool            String
+  currentS                  String
+  currentP                  String
+  createdAt                 DateTime @default(now())
+}
+
+model Apr {
+  id                        Int     @id @default(autoincrement())
+  asset                     String
+  apr                       Float
+  createdAt                 DateTime @default(now())
+}
